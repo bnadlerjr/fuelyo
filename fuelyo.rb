@@ -14,6 +14,7 @@ end
 post '/incoming' do
   content_type 'text/plain'
   'Hello user 1044!'
+  "RESPONSE #{response.body}"
 end
 
 enable :inline_templates
