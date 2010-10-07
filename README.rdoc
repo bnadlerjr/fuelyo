@@ -1,0 +1,23 @@
+= Fuelyo
+
+== Description
+For everyone who wants to track their vehicle's fuel economy, fuelyo is a online
+tracker that provides fuel efficiency data based on your actual gas mileage
+information. Unlike manual tracking fuelyo is simple to use and can be updated
+via SMS.
+
+== Scope ('+' => In Scope; '-' => Out of Scope)
+ + Enter mileage info via SMS
+ + See fuel efficency over time
+ - Multiple cars per user
+
+== Architecture
+ Sinatra app for website / web service that accepts mileage info
+ MongoDB for fuel data
+ Tropo for SMS support
+
+ 1. User send SMS message to Sinatra App
+ 2. SMS message consists of three parts <odometer> <gallons> <total_price>
+ 3. Sinatra app parses SMS message and saves data to database
+ 4. User logs into web app
+ 5. User views mileage history
