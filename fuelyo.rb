@@ -13,7 +13,6 @@ end
 
 post '/incoming' do
   content_type 'text/plain'
-  'Hello user 1044!' +
   "SMS #{params[:event][:body]}"
 end
 
