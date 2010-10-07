@@ -11,6 +11,11 @@ get '/panel' do
   erb :panel
 end
 
+post '/incoming' do
+  content_type 'text/plain'
+  'Hello user 1044!'
+end
+
 enable :inline_templates
 
 __END__
