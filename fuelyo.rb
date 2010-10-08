@@ -17,7 +17,7 @@ post '/incoming' do
 end
 
 get '/env' do
-  ENV.map { |k,v| "#{k} => #{v}\n" }
+  erb :env
 end
 
 enable :inline_templates
@@ -32,3 +32,10 @@ __END__
   src="https://www.zeepmobile.com/subscription/settings?api_key=5f02d2d6-97e8-4316-83b6-f5ee69b6af26&user_id=[1044]"
 >
 </iframe>  
+
+@@ env
+<ul>
+<% ENV.each do |k,v| %>
+<li><%= "#{k} => #{v} %></li>
+<% end %>
+</ul>
