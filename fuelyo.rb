@@ -25,7 +25,8 @@ class FuelRecord
   r = FuelRecord.create(:user_id => user_id, 
                      :odometer => odometer, 
                      :price => price, 
-                     :gallons => gallons)
+                     :gallons => gallons,
+                     :miles_per_gallon => odometer / gallons)
   r.save
   r
  end
