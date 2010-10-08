@@ -22,10 +22,11 @@ class FuelRecord
  before :save, :calculate_miles_per_gallon
 
  def self.create_from_sms(user_id, odometer, price, gallons)
-   FuelRecord.create(:user_id => user_id, 
+  r = FuelRecord.create(:user_id => user_id, 
                      :odometer => odometer, 
                      :price => price, 
                      :gallons => gallons)
+  r.save
  end
 
  private
