@@ -1,15 +1,58 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    addressable (2.2.1)
+    datamapper (1.0.2)
+      dm-aggregates (= 1.0.2)
+      dm-constraints (= 1.0.2)
+      dm-core (= 1.0.2)
+      dm-migrations (= 1.0.2)
+      dm-serializer (= 1.0.2)
+      dm-timestamps (= 1.0.2)
+      dm-transactions (= 1.0.2)
+      dm-types (= 1.0.2)
+      dm-validations (= 1.0.2)
+    dm-aggregates (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-constraints (1.0.2)
+      dm-core (~> 1.0.2)
+      dm-migrations (~> 1.0.2)
+    dm-core (1.0.2)
+      addressable (~> 2.2)
+      extlib (~> 0.9.15)
+    dm-migrations (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-serializer (1.0.2)
+      dm-core (~> 1.0.2)
+      fastercsv (~> 1.5.3)
+      json_pure (~> 1.4)
+    dm-timestamps (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-transactions (1.0.2)
+      dm-core (~> 1.0.2)
+    dm-types (1.0.2)
+      dm-core (~> 1.0.2)
+      fastercsv (~> 1.5.3)
+      json_pure (~> 1.4)
+      stringex (~> 1.1.0)
+      uuidtools (~> 2.1.1)
+    dm-validations (1.0.2)
+      dm-core (~> 1.0.2)
+    extlib (0.9.15)
+    fastercsv (1.5.3)
+    json_pure (1.4.6)
     rack (1.2.1)
     shotgun (0.8)
       rack (>= 1.0)
     sinatra (1.0)
       rack (>= 1.0)
+    stringex (1.1.0)
+    uuidtools (2.1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  datamapper
   shotgun
   sinatra
