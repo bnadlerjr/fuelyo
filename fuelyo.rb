@@ -27,6 +27,7 @@ class FuelRecord
                      :price => price, 
                      :gallons => gallons)
   r.save
+  r
  end
 
  private
