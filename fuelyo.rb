@@ -5,37 +5,37 @@ require 'sinatra'
 require 'datamapper'
 
 configure :production do
-#  DataMapper::setup(:default, "postgres://#{ENV['DATABASE_URI']}")
+  DataMapper::setup(:default, ENV['DATABASE_URI'])
 end
 
-#class FuelRecord
-#  include DataMapper::Resource
-#
-#  property :id, Serial
-#  property :user_id, Integer
-#  property :odometer, Integer
-#  property :price, Float
-#  property :gallons, Float
-#  property :miles_per_gallon, Float
-#  property :created_at, DateTime, :default => lambda { |r,p| p = Time.now }
-#
-#  before :save, :calculate_miles_per_gallon
-#
-#  def self.create_from_sms(user_id, odometer, price, gallons)
-#    FuelRecord.create(:user_id => user_id, 
-#                      :odometer => odometer, 
-#                      :price => price, 
-#                      :gallon => gallons)
-#  end
-#
-#  private
-#
-#  def calculate_miles_per_gallon
-#    miles_per_gallon = odometer / gallons
-#  end
-#end
-#
-#FuelRecord.auto_migrate!
+class FuelRecord
+ include DataMapper::Resource
+
+ property :id, Serial
+ property :user_id, Integer
+ property :odometer, Integer
+ property :price, Float
+ property :gallons, Float
+ property :miles_per_gallon, Float
+ property :created_at, DateTime, :default => lambda { |r,p| p = Time.now }
+
+ before :save, :calculate_miles_per_gallon
+
+ def self.create_from_sms(user_id, odometer, price, gallons)
+   FuelRecord.create(:user_id => user_id, 
+                     :odometer => odometer, 
+                     :price => price, 
+                     :gallon => gallons)
+ end
+
+ private
+
+ def calculate_miles_per_gallon
+   miles_per_gallon = odometer / gallons
+ end
+end
+
+FuelRecord.auto_migrate!
 
 get '/' do
   'Welcome to Fuelyo!'
