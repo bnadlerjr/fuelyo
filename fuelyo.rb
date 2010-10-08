@@ -13,7 +13,7 @@ end
 
 post '/incoming' do
   content_type 'text/plain'
-  "SMS #{params.inspect}"
+  "SMS #{params[:body]}"
 end
 
 enable :inline_templates
