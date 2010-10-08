@@ -51,9 +51,8 @@ end
 
 post '/incoming' do
   content_type 'text/plain'
-  r = FuelRecord.create_from_sms(1, 2, 3.4, 4.5)
-  "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
-#  "SMS #{params[:body]}"
+#  r = FuelRecord.create_from_sms(1, 2, 3.4, 4.5)
+  "Successfully saved fuel record. Current MPG is" #{r.miles_per_gallon}."
 end
 
 get '/env' do
