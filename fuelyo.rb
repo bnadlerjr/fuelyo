@@ -52,7 +52,7 @@ end
 post '/incoming' do
   content_type 'text/plain'
   r = FuelRecord.create_from_sms(1, 2, 3.4, 4.5)
-  "Successfully saved fuel record. Current MPG is #{r.inspect}."
+  "Successfully saved fuel record. Current MPG is #{r.odometer}."
 end
 
 get '/env' do
