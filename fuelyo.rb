@@ -17,7 +17,7 @@ post '/incoming' do
 end
 
 get '/env' do
-  ENV.inspect
+  ENV.map { |k,v| "#{k} => #{v}\n" }
 end
 
 enable :inline_templates
