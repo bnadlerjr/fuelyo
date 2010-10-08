@@ -16,6 +16,10 @@ post '/incoming' do
   "SMS #{params[:body]}"
 end
 
+get '/env' do
+  ENV.inspect
+end
+
 enable :inline_templates
 
 __END__

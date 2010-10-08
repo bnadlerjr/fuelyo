@@ -21,3 +21,8 @@ via SMS.
  3. Sinatra app parses SMS message and saves data to database
  4. User logs into web app
  5. User views mileage history
+
+Calculating MPG
+ Store Odometer, price, num of gallons & date
+ Calculate miles by subtracting current odometer from previous odometer
+ MPG = miles / num of gallons
