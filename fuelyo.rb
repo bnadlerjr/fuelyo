@@ -5,7 +5,7 @@ require 'sinatra'
 require 'datamapper'
 
 configure :production do
-  DataMapper::setup(:default, ENV['DATABASE_URI'])
+  DataMapper::setup(:default, "postgres://#{ENV['DATABASE_URI']}")
 end
 
 class FuelRecord
