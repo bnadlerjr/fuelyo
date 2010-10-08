@@ -45,6 +45,10 @@ get '/panel' do
   erb :panel
 end
 
+get '/records' do
+  FuelRecord.all
+end
+
 post '/incoming' do
   content_type 'text/plain'
   r = FuelRecord.create_from_sms(1, 2, 3.4, 4.5)
