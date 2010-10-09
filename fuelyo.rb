@@ -23,10 +23,11 @@ class FuelRecord
 
   def self.new_from_sms(sms)
     # TODO : Scope fuel record creation to user_id
+    user_id = sms[uid].match(/\[.\]/)[0]
     odometer, price, gallons = sms[:body].split(' ')
 
     r = FuelRecord.new(
-      :user_id  => sms[:uid],
+      :user_id  => user_id,
       :odometer => odometer,
       :price    => price,
       :gallons  => gallons)
@@ -61,7 +62,7 @@ post '/incoming' do
   if r.save
     "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
   else
-    "There was a problem trying to save your fuel record. #{r.errors.inspect}"
+    "There was a problem trying to save your fuel record. #{r.errors.join(';')}"
   end
 end
 
