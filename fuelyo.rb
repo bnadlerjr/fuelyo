@@ -58,6 +58,7 @@ end
 post '/incoming' do
   content_type 'text/plain'
   r = FuelRecord.create_from_sms(params)
+  r.save
   "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
 end
 
