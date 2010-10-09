@@ -23,7 +23,7 @@ class FuelRecord
 
   def self.new_from_sms(sms)
     # TODO : Scope fuel record creation to user_id
-    user_id = sms[uid].match(/\[.\]/)[0]
+    user_id = sms[:uid].match(/\[.\]/)[0]
     odometer, price, gallons = sms[:body].split(' ')
 
     r = FuelRecord.new(
