@@ -21,11 +21,11 @@ class FuelRecord
 
   before :save, :calculate_miles_per_gallon
 
-  def self.create_from_sms(sms)
+  def self.new_from_sms(sms)
     # TODO : Scope fuel record creation to user_id
     odometer, price, gallons = sms[:body].split(' ')
 
-    r = FuelRecord.create(
+    r = FuelRecord.new(
       :user_id  => sms[:uid],
       :odometer => odometer,
       :price    => price,
@@ -57,7 +57,7 @@ end
 
 post '/incoming' do
   content_type 'text/plain'
-  r = FuelRecord.create_from_sms(params)
+  r = FuelRecord.new_from_sms(params)
   if r.save
     "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
   else
