@@ -61,7 +61,7 @@ post '/incoming' do
   if r.save
     "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
   else
-    "There was a problem trying to save your fuel record."
+    "There was a problem trying to save your fuel record. #{r.errors.inspect}"
   end
 end
 
