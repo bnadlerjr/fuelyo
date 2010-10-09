@@ -3,43 +3,10 @@ Bundler.setup
 
 require 'sinatra'
 require 'datamapper'
+require 'models/fuel_record'
 
 configure :production do
   DataMapper::setup(:default, ENV['DATABASE_URL'])
-end
-
-class FuelRecord
-  include DataMapper::Resource
-
-  property :id, Serial
-  property :user_id, Integer
-  property :odometer, Integer
-  property :price, Float
-  property :gallons, Float
-  property :miles_per_gallon, Float
-  property :created_at, DateTime, :default => lambda { |r,p| p = Time.now }
-
-  before :save, :calculate_miles_per_gallon
-
-  def self.new_from_sms(sms)
-    # TODO : Scope fuel record creation to user_id
-    user_id = sms[:uid].match(/\[.\]/)[0]
-    odometer, price, gallons = sms[:body].split(' ')
-
-    r = FuelRecord.new(
-      :user_id  => user_id,
-      :odometer => odometer,
-      :price    => price,
-      :gallons  => gallons)
-
-    r
-  end
-
-  private
-
-  def calculate_miles_per_gallon
-    miles_per_gallon = odometer / gallons
-  end
 end
 
 FuelRecord.auto_migrate!
