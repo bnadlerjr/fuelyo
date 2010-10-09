@@ -9,32 +9,36 @@ configure :production do
 end
 
 class FuelRecord
- include DataMapper::Resource
+  include DataMapper::Resource
 
- property :id, Serial
- property :user_id, Integer
- property :odometer, Integer
- property :price, Float
- property :gallons, Float
- property :miles_per_gallon, Float
- property :created_at, DateTime, :default => lambda { |r,p| p = Time.now }
+  property :id, Serial
+  property :user_id, Integer
+  property :odometer, Integer
+  property :price, Float
+  property :gallons, Float
+  property :miles_per_gallon, Float
+  property :created_at, DateTime, :default => lambda { |r,p| p = Time.now }
 
- before :save, :calculate_miles_per_gallon
+  before :save, :calculate_miles_per_gallon
 
- def self.create_from_sms(sms)
-  r = FuelRecord.create(:user_id => user_id, 
-                     :odometer => odometer, 
-                     :price => price, 
-                     :gallons => gallons)
-#  r.save
-  r
- end
+  def self.create_from_sms(sms)
+    # TODO : Scope fuel record creation to user_id
+    odometer, price, gallons = sms[:body].split(' ')
 
- private
+    r = FuelRecord.create(
+      :user_id  => sms[:uid],
+      :odometer => odometer,
+      :price    => price,
+      :gallons  => gallons)
 
- def calculate_miles_per_gallon
-   miles_per_gallon = odometer / gallons
- end
+    r
+  end
+
+  private
+
+  def calculate_miles_per_gallon
+    miles_per_gallon = odometer / gallons
+  end
 end
 
 FuelRecord.auto_migrate!
@@ -53,9 +57,8 @@ end
 
 post '/incoming' do
   content_type 'text/plain'
-  params.inspect
-#  r = FuelRecord.create_from_sms(1, 2, 3.4, 4.5)
-#  "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
+  r = FuelRecord.create_from_sms(params)
+  "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
 end
 
 get '/env' do

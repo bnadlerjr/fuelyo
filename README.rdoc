@@ -26,3 +26,14 @@ Calculating MPG
  Store Odometer, price, num of gallons & date
  Calculate miles by subtracting current odometer from previous odometer
  MPG = miles / num of gallons
+
+Zeep Mobile Response Format
+fuelyo: {
+  "body"       => "2123",
+  "app_id"     => "12243",
+  "uid"        => "[1044]",
+  "sms_prefix" => "fuelyo",
+  "event"      => "MO",
+  "min"        => "test:6137",
+  "short_code" => "test:88147"
+}
