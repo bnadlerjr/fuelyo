@@ -8,7 +8,7 @@ FuelRecord.auto_migrate!
 
 class FuelRecordFactory
   def self.create
-    raise "FOO" unless FuelRecord.new(
+    raise "FuelRecordFactory creation error." unless FuelRecord.new(
       :user_id => 1,
       :odometer => 200,
       :price => 0.99,
