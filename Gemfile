@@ -7,3 +7,7 @@ gem 'dm-postgres-adapter'
 group :development do
   gem 'shotgun'
 end
+
+group :test do
+  gem 'dm-sqlite-adapter'
+end
