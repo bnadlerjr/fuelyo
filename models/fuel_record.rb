@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'dm-core'
-
 class FuelRecord
   include DataMapper::Resource
 

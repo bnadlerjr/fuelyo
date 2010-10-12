@@ -10,4 +10,5 @@ end
 
 group :test do
   gem 'dm-sqlite-adapter'
+  gem 'rack-test'
 end

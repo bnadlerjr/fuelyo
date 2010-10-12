@@ -5,11 +5,16 @@ require 'sinatra'
 require 'datamapper'
 require 'models/fuel_record'
 
+configure :test do
+  DataMapper::setup(:default, 'sqlite::memory:')
+end
+
 configure :production do
   DataMapper::setup(:default, ENV['DATABASE_URL'])
 end
 
-FuelRecord.auto_migrate!
+DataMapper.finalize
+DataMapper.auto_migrate!
 
 get '/' do
   'Welcome to Fuelyo!'

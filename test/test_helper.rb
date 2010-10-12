@@ -1,10 +1,9 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'rubygems'
-require 'datamapper'
-require 'models/fuel_record'
-
-DataMapper::setup(:default, 'sqlite::memory:')
-
-FuelRecord.auto_migrate!
+require 'test/unit'
+require 'rack/test'
+require 'fuelyo'
 
 class FuelRecordFactory
   def self.create(options={})
