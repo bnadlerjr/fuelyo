@@ -88,7 +88,7 @@ __END__
       <tbody>
         <% @records.each do |r| %>
           <tr>
-            <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= r.created_at.strftime("%Y-%m-%d at %I:%M%p") %></td>
             <td><%= r.odometer %></td>
             <td><%= r.price %></td>
             <td><%= r.gallons %></td>
