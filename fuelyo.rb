@@ -19,7 +19,7 @@ configure :production do
 end
 
 DataMapper.finalize
-DataMapper.auto_migrate!
+#DataMapper.auto_migrate!
 
 MESSAGES = {
   :first_save => lambda { 
@@ -88,7 +88,7 @@ __END__
       <tbody>
         <% @records.each do |r| %>
           <tr>
-            <td><%= r.created_at %></td>
+            <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= r.odometer %></td>
             <td><%= r.price %></td>
             <td><%= r.gallons %></td>
