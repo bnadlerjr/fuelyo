@@ -19,10 +19,10 @@ class FuelRecord
     odometer, price, gallons = sms['body'].split(' ')
 
     FuelRecord.new(
-      :user_id          => user_id,
-      :odometer         => odometer,
-      :price            => price,
-      :gallons          => gallons
+      :user_id  => user_id,
+      :odometer => odometer,
+      :price    => price,
+      :gallons  => gallons
     )
   end
 
