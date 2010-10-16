@@ -92,7 +92,7 @@ __END__
             <td><%= r.odometer %></td>
             <td><%= r.price %></td>
             <td><%= r.gallons %></td>
-            <td><%= r.miles_per_gallon %></td>
+            <td><%= sprintf('%.2f', r.miles_per_gallon) %></td>
           </tr>
         <% end %>
       </tbody>
