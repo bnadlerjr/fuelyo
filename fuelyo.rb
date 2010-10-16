@@ -16,6 +16,13 @@ end
 DataMapper.finalize
 DataMapper.auto_migrate!
 
+MESSAGES = {
+  :first_save => lambda { 
+    "Great! You've saved your first fuel record. The next time you send fuel information we'll be able to calculate your MPG." 
+  },
+  :save => lambda { |mpg| "Successfully saved fuel record. Current MPG is #{mpg}." }
+}
+
 get '/' do
   'Welcome to Fuelyo!'
 end
@@ -32,7 +39,7 @@ post '/incoming' do
   content_type 'text/plain'
   r = FuelRecord.new_from_sms(params)
   if r.save
-    "Successfully saved fuel record. Current MPG is #{r.miles_per_gallon}."
+    0 == r.miles_per_gallon ? MESSAGES[:first_save].call : MESSAGES[:save].call
   else
     r.errors.each { |k,v| v }.join(';')
   end
