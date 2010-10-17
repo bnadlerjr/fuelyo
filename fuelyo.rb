@@ -39,7 +39,7 @@ get '/panel' do
 end
 
 get '/records' do
-  @averages = FuelRecord.aggregate(:miles_per_gallon.avg, :fields => [:created_at])
+  @averages = FuelRecord.aggregate(:miles_per_gallon.avg, :fields => [:created_at.strftime('%m-%Y')])
   @records = FuelRecord.all
   erb :records
 end
