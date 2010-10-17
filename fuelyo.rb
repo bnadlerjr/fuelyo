@@ -12,6 +12,7 @@ end
 
 configure :test do
   DataMapper::setup(:default, 'sqlite::memory:')
+  DataMapper.auto_migrate!
 end
 
 configure :production do
@@ -19,7 +20,6 @@ configure :production do
 end
 
 DataMapper.finalize
-#DataMapper.auto_migrate!
 
 MESSAGES = {
   :first_save => lambda { 
