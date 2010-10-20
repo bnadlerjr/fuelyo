@@ -66,8 +66,9 @@ end
 
 get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
-  # do whatever you want with the information!
-  auth.inspect
+  user = User.find_or_create_by_auth_info(auth)
+  session['user_id'] = user.id
+  redirect '/records'
 end
 
 get '/env' do
