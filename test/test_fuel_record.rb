@@ -44,4 +44,64 @@ MSG
     assert !fr.save
     assert_equal msg, fr.errors[:odometer][0]
   end
+
+  def test_history
+    FuelRecordFactory.create_history
+    history = FuelRecord.history
+
+    expected = [
+      [Date.parse('31-01-2010'), 0.415],
+      [Date.parse('28-02-2010'), 0.830],
+      [Date.parse('31-03-2010'), 0.830],
+      [Date.parse('30-04-2010'), 0.830],
+      [Date.parse('31-05-2010'), 0.830],
+      [Date.parse('30-06-2010'), 0.830],
+      [Date.parse('31-07-2010'), 0.830],
+      [Date.parse('31-08-2010'), 0.830],
+      [Date.parse('30-09-2010'), 0.830],
+      [Date.parse('31-10-2010'), 0.830]
+    ].each_with_index do |e, i|
+      assert_history_record_equal e, history[i]
+    end
+  end
+
+  private
+
+  def assert_history_record_equal(expected, actual, tolerance=0.01)
+    assert_equal expected[0], actual[0]
+    assert_in_delta expected[1], actual[1], tolerance, 
+      "#{expected[0]} - #{actual[0]}"
+  end
 end
+
+# 0
+# 0.83
+# 0.415
+#
+# 0.83
+# 0.83
+#
+#
+# 0.83
+#
+# 0.83
+# 0.83
+# 0.83
+#
+# 0.83
+#
+# 0.83
+# 0.83
+# 0.83
+#
+# 0.83
+#
+# 0.83
+# 0.83
+# 0.83
+#
+# 0.83
+# 0.83
+# 0.83
+#
+# 0.83

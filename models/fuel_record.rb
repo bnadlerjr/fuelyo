@@ -26,6 +26,22 @@ class FuelRecord
     )
   end
 
+  def self.history
+    # TODO: I can't find a DB agnostic way of extracting month and year from a
+    # datetime. Also can't find anything in dm-aggregates or dm-core to support
+    # this. For now, grab all records in date range and group them using Ruby;
+    # this will be SLOW but will do until I find a better way.
+    history = {}
+    FuelRecord.all.each do |r|
+      date = Date.new(r.created_at.year, r.created_at.month, -1)
+      history[date] = [] unless history.has_key?(date)
+      history[date] << r.miles_per_gallon
+    end
+
+    # Calculate average MPG for each date entry and sort by date.
+    history.map { |k,v| [k, v.avg] }.sort { |a,b| a.first <=> b.first }
+  end
+
   private
 
   def calculate_miles_per_gallon

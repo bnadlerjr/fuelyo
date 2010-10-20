@@ -4,6 +4,7 @@ Bundler.setup
 
 require 'sinatra'
 require 'datamapper'
+require 'lib/core-ext/array'
 require 'models/fuel_record'
 
 configure :development do
@@ -39,8 +40,7 @@ get '/panel' do
 end
 
 get '/records' do
-  @averages = FuelRecord.aggregate(:miles_per_gallon.avg, 
-    :fields => [Date::strptime(:created_at, '%d/%m/%Y')])
+  @averages = FuelRecord.history
   @records = FuelRecord.all
   erb :records
 end
