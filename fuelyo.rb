@@ -10,8 +10,6 @@ require 'lib/core-ext/array'
 require 'models/fuel_record'
 require 'models/user'
 
-auth_config = YAML::load(File.open('config.yml'))
-
 configure :development do
   DataMapper::setup(:default, 'sqlite::memory:')
 end
@@ -28,7 +26,7 @@ end
 DataMapper.finalize
 
 use OmniAuth::Builder do
-  provider :twitter, auth_config['twitter']['consumerkey'], auth_config['twitter']['consumerkey']
+  provider :twitter, ENV['twitter_consumerkey'], ENV['twitter_consumersecret']
 end
 
 enable :sessions
