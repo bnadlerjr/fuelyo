@@ -16,7 +16,7 @@ class FuelRecord
   belongs_to :user
 
   def self.new_from_sms(sms)
-    puts "ZEEP ::::: #{sms.inspect}"
+    puts "USERS ::::: #{User.all.inspect}"
     user = User.find_by_zeep_mobile_uid(sms['uid'].gsub(/(\[|\])/, ''))
     odometer, price, gallons = sms['body'].split(' ')
 
