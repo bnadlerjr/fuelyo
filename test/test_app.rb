@@ -12,11 +12,6 @@ class TestApp < Test::Unit::TestCase
     UserFactory.create
   end
 
-  def test_root
-    get '/'
-    assert_equal 'Welcome to Fuelyo!', last_response.body
-  end
-
   def test_incoming_first_fuel_record
     post '/incoming', {
         "body"       => "150 2.99 15",
