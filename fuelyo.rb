@@ -36,6 +36,7 @@ get '/records' do
   erb :records
 end
 
+# TODO: This route should be '/records' to be consistent
 post '/incoming' do
   content_type 'text/plain'
   r = FuelRecord.new_from_sms(params)
@@ -55,6 +56,8 @@ get '/env' do
   ENV.inspect
 end
 
+# TODO: Move inline templates to separate files.
+# TODO: Create a layout file.
 enable :inline_templates
 
 __END__
