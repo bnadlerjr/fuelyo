@@ -34,10 +34,7 @@ end
 enable :sessions
 
 get '/' do
-  <<-HTML
-  <h1>Welcome to Fuelyo!</h1>
-  <a href='/auth/twitter'>Sign in with Twitter</a>
-HTML
+  erb :index
 end
 
 get '/panel' do
