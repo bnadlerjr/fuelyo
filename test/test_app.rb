@@ -8,8 +8,8 @@ class TestApp < Test::Unit::TestCase
   end
 
   def setup
-    FuelRecord.destroy
-    assert_equal 0, FuelRecord.all.count
+    reset_database
+    UserFactory.create
   end
 
   def test_root

@@ -12,9 +12,9 @@ class TestFuelRecord < Test::Unit::TestCase
       "short_code" => "test:48147"
     }
 
-    FuelRecord.destroy
-    assert_equal 0, FuelRecord.all.count
+    reset_database
 
+    UserFactory.create
     @fr = FuelRecord.new_from_sms(sms)
   end
 
@@ -23,7 +23,6 @@ class TestFuelRecord < Test::Unit::TestCase
     assert @fr.save, "Cannot save fuel record: #{@fr.errors.each { |e| p e }}"
 
     assert_equal 2, FuelRecord.all.count
-    assert_equal 1044, @fr.user_id, 'user_id'
     assert_equal 150, @fr.odometer, 'odometer'
     assert_equal 2.99, @fr.price, 'price'
     assert_equal 15, @fr.gallons, 'gallons'

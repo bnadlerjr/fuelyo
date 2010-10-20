@@ -8,6 +8,7 @@ require 'yaml'
 require 'omniauth'
 require 'lib/core-ext/array'
 require 'models/fuel_record'
+require 'models/user'
 
 auth_config = YAML::load(File.open('config.yml'))
 
