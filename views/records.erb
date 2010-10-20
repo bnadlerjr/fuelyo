@@ -35,42 +35,37 @@
         <div id="content-wrap">
 
             <div id="sidebar">
-
-                <h3>Sign In or Create An Account</h3>
-                <p>Click on one of the social network icons below. Fuelyo will create an account for you or sign you in if you already have one.</p>
-                <ul class="sidemenu">
-                    <li>
-                        <a href="/auth/twitter"> <img src="./images/twitter-sign-in.png" /> </a>
-                    </li>
-                </ul>
-
+                <iframe
+                  style="width: 100%; height: 300px; border: none;"
+                  frameborder="0" allowtransparency="0"
+                  id="zeep_mobile_settings_panel"
+                  src="https://www.zeepmobile.com/subscription/settings?api_key=5f02d2d6-97e8-4316-83b6-f5ee69b6af26&user_id=[<%= session['user_id'] %>]"></iframe>
             </div>
             <div id="main">
-
-                <h2>What is fuelyo?</h2>
-                <p>Fuelyo is an online tool that allows you to track your car's
-                fuel efficiency.</p>
-
-                <h2>How Does It Work</h2>
-                <p>Simple...</p>
-                <ol>
-                    <li>Sign up for an account. You can sign up using Twitter,
-                    so that you don't have to remember yet another username and
-                    password combo.</li>
-                    <li>Register your cellphone number with Fuelyo. This way we
-                    know who you are when you send a text message to us.</li>
-                    <li>Whenever you fill up your gas tank, send a text message
-                    to 111111 that has your odometer reading, the price per
-                    gallon of gas and how many gallons you purchased.</li>
-                </ol>
-                <p>When you send a text message to fuelyo, it will calculate
-                your MPG and send you a text message back telling you what it
-                is.</p>
-                <p>You can also log into your account on this website and see
-                all of your updates along with a graph showing your average MPG
-                over time.</p>
+              <div><%= @averages.join(',') %></div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date / Time</th>
+                    <th>Odometer</th>
+                    <th>Price</th>
+                    <th>Gallons</th>
+                    <th>MPG</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @records.each do |r| %>
+                    <tr>
+                      <td><%= r.created_at.strftime("%Y-%m-%d at %I:%M%p") %></td>
+                      <td><%= r.odometer %></td>
+                      <td><%= r.price %></td>
+                      <td><%= r.gallons %></td>
+                      <td><%= sprintf('%.2f', r.miles_per_gallon) %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
             </div>
-
         <!-- content-wrap ends here -->
         </div>
 
