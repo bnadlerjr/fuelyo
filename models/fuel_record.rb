@@ -17,11 +17,10 @@ class FuelRecord
 
   def self.new_from_sms(sms)
     puts "USERS ::::: #{User.all.inspect}"
-    user = User.find_by_zeep_mobile_uid(sms['uid'].gsub(/(\[|\])/, ''))
+    user = User.get(sms['uid'].gsub(/(\[|\])/, ''))
     odometer, price, gallons = sms['body'].split(' ')
 
     user.fuel_records.new(
-      :user_id  => user_id,
       :odometer => odometer,
       :price    => price,
       :gallons  => gallons

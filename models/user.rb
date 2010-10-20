@@ -4,7 +4,6 @@ class User
   property :id, Serial
   property :provider, String
   property :auth_provider_uid, Integer
-  property :zeep_mobile_uid, Integer
   property :name, String
 
   has n, :fuel_records
@@ -19,7 +18,6 @@ class User
       user = User.new(
         :provider => auth['provider'],
         :auth_provider_uid => auth['uid'],
-        :zeep_mobile_uid => auth['uid'],
         :name => auth['user_info']['name']
       )
       user.save
