@@ -4,8 +4,13 @@ Bundler.setup
 
 require 'sinatra'
 require 'datamapper'
+require 'yaml'
+require 'omniauth'
 require 'lib/core-ext/array'
 require 'models/fuel_record'
+require 'models/user'
+
+auth_config = YAML::load(File.open('config.yml'))
 
 configure :development do
   DataMapper::setup(:default, 'sqlite::memory:')
@@ -22,8 +27,17 @@ end
 
 DataMapper.finalize
 
+use OmniAuth::Builder do
+  provider :twitter, auth_config['twitter']['consumerkey'], auth_config['twitter']['consumerkey']
+end
+
+enable :sessions
+
 get '/' do
-  'Welcome to Fuelyo!'
+  <<-HTML
+  <h1>Welcome to Fuelyo!</h1>
+  <a href='/auth/twitter'>Sign in with Twitter</a>
+HTML
 end
 
 get '/panel' do
@@ -50,6 +64,12 @@ post '/incoming' do
   else
     r.errors.each { |k,v| v }.join(';')
   end
+end
+
+get '/auth/:name/callback' do
+  auth = request.env['omniauth.auth']
+  # do whatever you want with the information!
+  auth.inspect
 end
 
 get '/env' do

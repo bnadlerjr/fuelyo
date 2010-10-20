@@ -13,12 +13,13 @@ class FuelRecord
 
   before :save, :calculate_miles_per_gallon
 
+  belongs_to :user
+
   def self.new_from_sms(sms)
-    # TODO : Scope fuel record creation to user_id
-    user_id = sms['uid'].gsub(/(\[|\])/, '')
+    user = User.find_by_zeep_mobile_uid(sms['uid'].gsub(/(\[|\])/, ''))
     odometer, price, gallons = sms['body'].split(' ')
 
-    FuelRecord.new(
+    user.fuel_records.new(
       :user_id  => user_id,
       :odometer => odometer,
       :price    => price,
@@ -32,6 +33,8 @@ class FuelRecord
     # this. For now, grab all records in date range and group them using Ruby;
     # this will be SLOW but will do until I find a better way.
     history = {}
+
+    # First group all fuel records by date.
     FuelRecord.all.each do |r|
       date = Date.new(r.created_at.year, r.created_at.month, -1)
       history[date] = [] unless history.has_key?(date)

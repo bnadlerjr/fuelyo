@@ -5,6 +5,11 @@ require 'test/unit'
 require 'rack/test'
 require 'fuelyo'
 
+def reset_database
+  FuelRecord.destroy
+  User.destroy
+end
+
 class FuelRecordFactory
   def self.create(options={})
     options.merge!({
@@ -42,5 +47,16 @@ class FuelRecordFactory
     ]
 
     sample_history.each { |r| FuelRecord.create(r) }
+  end
+end
+
+class UserFactory
+  def self.create(options={})
+    options.merge!({
+      :zeep_mobile_uid => 1044,
+      :name => 'JohnDoe'
+    })
+
+    raise "UserFactory creation error." unless User.new(options).save
   end
 end
