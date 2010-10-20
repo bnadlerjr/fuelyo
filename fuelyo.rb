@@ -12,6 +12,7 @@ require 'models/user'
 
 configure :development do
   DataMapper::setup(:default, 'sqlite::memory:')
+  DataMapper.auto_migrate!
 end
 
 configure :test do
@@ -21,6 +22,7 @@ end
 
 configure :production do
   DataMapper::setup(:default, ENV['DATABASE_URL'])
+  DataMapper.auto_upgrade!
 end
 
 DataMapper.finalize
