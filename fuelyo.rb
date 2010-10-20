@@ -66,13 +66,3 @@ get '/auth/:name/callback' do
   session['user_id'] = user.id
   redirect "/records"
 end
-
-get '/env' do
-  ENV.inspect
-end
-
-# TODO: Move inline templates to separate files.
-# TODO: Create a layout file.
-enable :inline_templates
-
-__END__
