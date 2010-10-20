@@ -27,4 +27,8 @@ class User
 
     user
   end
+
+  def fuel_history
+    FuelRecord.history(self.id)
+  end
 end

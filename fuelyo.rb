@@ -46,7 +46,7 @@ end
 
 get '/records' do
   user = User.get(session['user_id'])
-  @averages = FuelRecord.history
+  @averages = user.fuel_history
   @records = user.fuel_records
   erb :records
 end

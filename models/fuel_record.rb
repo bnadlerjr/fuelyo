@@ -27,7 +27,7 @@ class FuelRecord
     )
   end
 
-  def self.history
+  def self.history(user_id)
     # TODO: I can't find a DB agnostic way of extracting month and year from a
     # datetime. Also can't find anything in dm-aggregates or dm-core to support
     # this. For now, grab all records in date range and group them using Ruby;
@@ -35,7 +35,7 @@ class FuelRecord
     history = {}
 
     # First group all fuel records by date.
-    FuelRecord.all.each do |r|
+    FuelRecord.all(:user_id.eql => user_id).each do |r|
       date = Date.new(r.created_at.year, r.created_at.month, -1)
       history[date] = [] unless history.has_key?(date)
       history[date] << r.miles_per_gallon
