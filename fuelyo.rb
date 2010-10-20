@@ -44,9 +44,10 @@ get '/panel' do
   erb :panel
 end
 
-get '/records' do
+get '/:user_id/records' do
+  user = User.get(params[:user_id])
   @averages = FuelRecord.history
-  @records = FuelRecord.all
+  @records = user.fuel_records
   erb :records
 end
 
@@ -70,7 +71,7 @@ get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
   user = User.find_or_create_by_auth_info(auth)
   session['user_id'] = user.id
-  redirect '/records'
+  redirect "/#{user.id}/records"
 end
 
 get '/env' do
