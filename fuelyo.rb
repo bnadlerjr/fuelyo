@@ -34,7 +34,10 @@ end
 enable :sessions
 
 get '/' do
-  'Welcome to Fuelyo!'
+  <<-HTML
+  <h1>Welcome to Fuelyo!</h1>
+  <a href='/auth/twitter'>Sign in with Twitter</a>
+HTML
 end
 
 get '/panel' do
@@ -60,6 +63,12 @@ post '/incoming' do
   else
     r.errors.each { |k,v| v }.join(';')
   end
+end
+
+get '/auth/:name/callback' do
+  auth = request.env['omniauth.auth']
+  # do whatever you want with the information!
+  auth.inspect
 end
 
 get '/env' do
