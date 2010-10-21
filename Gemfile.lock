@@ -54,6 +54,7 @@ GEM
     do_sqlite3 (0.10.2)
       data_objects (= 0.10.2)
     extlib (0.9.15)
+    factory_girl (1.3.2)
     faraday (0.4.6)
       addressable (>= 2.1.1)
       rack (>= 1.0.1)
@@ -123,6 +124,7 @@ DEPENDENCIES
   datamapper
   dm-postgres-adapter
   dm-sqlite-adapter
+  factory_girl
   omniauth
   rack-test
   shotgun

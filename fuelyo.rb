@@ -44,7 +44,6 @@ get '/records' do
   erb :records
 end
 
-# TODO: This route should be '/records' to be consistent
 post '/incoming' do
   content_type 'text/plain'
   r = FuelRecord.new_from_sms(params)

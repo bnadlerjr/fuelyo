@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link rel="stylesheet" href="stylesheets/Envision.css" type="text/css" />
+<script src="javascripts/raphael.min.js"></script>
+<script src="javascripts/g.line.min.js"></script>
 
 <title>Fuelyo</title>
 
@@ -42,7 +44,7 @@
                   src="https://www.zeepmobile.com/subscription/settings?api_key=5f02d2d6-97e8-4316-83b6-f5ee69b6af26&user_id=[<%= session['user_id'] %>]"></iframe>
             </div>
             <div id="main">
-              <div><%= @averages.join(',') %></div>
+              <div id="mpg-graph"><%= @averages.join(',') %></div>
               <table>
                 <thead>
                   <tr>
