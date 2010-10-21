@@ -34,7 +34,7 @@ class FuelRecord
     history = {}
 
     # First group all fuel records by date.
-    FuelRecord.all(:user_id.eql => user_id).each do |r|
+    FuelRecord.all(:user_id=> user_id).each do |r|
       date = Date.new(r.created_at.year, r.created_at.month, -1)
       history[date] = [] unless history.has_key?(date)
       history[date] << r.miles_per_gallon

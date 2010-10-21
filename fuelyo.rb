@@ -44,6 +44,7 @@ get '/records' do
   erb :records
 end
 
+# TODO: This also needs to handle new signups
 post '/incoming' do
   content_type 'text/plain'
   r = FuelRecord.new_from_sms(params)
