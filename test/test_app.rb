@@ -13,7 +13,7 @@ class TestApp < Test::Unit::TestCase
     @sms = {
         "body"       => "150 2.99 15",
         "app_id"     => "1094",
-        "uid"        => "[#{@user.id}]",
+        "uid"        => "#{@user.id}",
         "sms_prefix" => "fuelyo",
         "event"      => "MO",
         "min"        => "test:2137",
