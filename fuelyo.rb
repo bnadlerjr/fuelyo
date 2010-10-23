@@ -47,6 +47,9 @@ end
 # TODO: This also needs to handle new signups
 post '/incoming' do
   content_type 'text/plain'
+  if params['event'] == 'SUBSCRIPTION_UPDATE'
+    return 'Great! Thanks for signing up to fuelyo. You can start sending updates with the fuelyo keyword, odometer reading, price per gallon, and gallons purchased. They should look like this: fuelyo 12435 1.99 12'
+  end
   r = FuelRecord.new_from_sms(params)
   if r.save
     if 0 == r.miles_per_gallon
