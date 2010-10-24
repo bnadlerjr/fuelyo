@@ -13,27 +13,11 @@ via SMS.
 
 == Architecture
  Sinatra app for website / web service that accepts mileage info
- MongoDB for fuel data
- Tropo for SMS support
+ Hosted on Heroku
+ Zeep Mobile for SMS support
 
- 1. User send SMS message to Sinatra App
- 2. SMS message consists of three parts <odometer> <gallons> <total_price>
+ 1. User sends SMS message to Sinatra App
+ 2. SMS message consists of three parts <app_id> <odometer> <gallons> <total_price>
  3. Sinatra app parses SMS message and saves data to database
  4. User logs into web app
  5. User views mileage history
-
-Calculating MPG
- Store Odometer, price, num of gallons & date
- Calculate miles by subtracting current odometer from previous odometer
- MPG = miles / num of gallons
-
-Zeep Mobile Response Format
-fuelyo: {
-  "body"       => "2123",
-  "app_id"     => "12243",
-  "uid"        => "[1044]",
-  "sms_prefix" => "fuelyo",
-  "event"      => "MO",
-  "min"        => "test:6137",
-  "short_code" => "test:88147"
-}
