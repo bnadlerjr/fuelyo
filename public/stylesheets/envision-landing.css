@@ -1,0 +1,186 @@
+/********************************************
+ *   HTML ELEMENTS
+ * ******************************************** */
+/* Top Elements */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0; }
+
+body {
+  background: #cccccc;
+  font: 90%/1.5em Verdana, Tahoma, arial, sans-serif;
+  color: #555555;
+  text-align: center; }
+
+/* links */
+a {
+  text-decoration: none;
+  color: #2180bc;
+  background: inherit; }
+  a:visited {
+    text-decoration: none;
+    color: #2180bc;
+    background: inherit; }
+  a:hover {
+    color: #88ac0b;
+    background: inherit;
+    text-decoration: underline; }
+
+/* headers */
+h1, h2, h3 {
+  font-family: "Trebuchet MS", Tahoma, Sans-serif; }
+
+h1 {
+  font-size: 150%;
+  font-weight: normal;
+  color: #006699; }
+
+h2 {
+  font-size: 140%;}
+
+h3 {
+  font-size: 120%;
+  color: #666666; }
+
+/* images */
+img {
+  background: #fafafa;
+  margin-left: 5px;
+  padding: 5px; }
+  img.float-right {
+    margin: 5px 0px 10px 10px; }
+  img.float-left {
+    margin: 5px 10px 10px 0px; }
+
+h1, h2, h3, p {
+  padding: 10px;
+  margin: 0; }
+
+ul, ol {
+  margin: 5px 20px;
+  padding: 0 20px; }
+
+/********************************************
+ *   LAYOUT
+ * ******************************************** */
+#wrap {
+  width: 1024px;
+  background: #cccccc url(../images/content.jpg) repeat-y center top;
+  margin: 0 auto;
+  text-align: left; }
+
+#content-wrap {
+  clear: both;
+  width: 964px;
+  padding: 0;
+  margin: 10px auto; }
+
+#header {
+  width: 1024px;
+  position: relative;
+  height: 103px;
+  background: #cccccc url(../images/header.jpg) no-repeat center top;
+  padding: 0;
+  color: white; }
+  #header h1#logo-text a {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font: bolder 44px "Trebuchet MS", Arial, Sans-serif;
+    letter-spacing: -2px;
+    color: white;
+    text-transform: none;
+    text-decoration: none;
+    background: transparent;
+    /* change the values of top and left to adjust the position of the logo */
+    top: 25px;
+    left: 47px; }
+  #header p#slogan {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font: normal 12px "Trebuchet MS", Arial, Sans-serif;
+    text-transform: none;
+    color: white;
+    /* change the values of top and left to adjust the position of the slogan */
+    top: 75px;
+    left: 75px; }
+
+/* Menu */
+#menu {
+  clear: both;
+  margin: 0 auto;
+  padding: 0;
+  background: url(../images/menu.jpg) repeat-x 0 0;
+  font: bold 12px/37px Verdana, Arial, Tahoma, Sans-serif;
+  height: 37px;
+  width: 964px; }
+  #menu ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #menu ul li {
+      display: inline; }
+      #menu ul li a {
+        display: block;
+        float: left;
+        padding: 0 12px;
+        color: white;
+        text-decoration: none; }
+      #menu ul li.last a {
+        padding-right: 20px; }
+      #menu ul li a:hover, #menu ul li a.current {
+        color: #d4e59f; }
+
+/* Main Column */
+#main {
+  width: 96.5%;
+  padding: 0;
+  margin: 5px 10 0 5px;
+  display: inline; }
+  #main ul li {
+    list-style-image: url(../images/bullet.gif); }
+
+/* Footer */
+#footer {
+  color: #c6ddee;
+  background: #cccccc url(../images/footer.jpg) no-repeat center top;
+  clear: both;
+  width: 1024px;
+  height: 65px;
+  text-align: center;
+  font-size: 92%; }
+  #footer a {
+    color: white;
+    text-decoration: none; }
+    #footer a:hover {
+      text-decoration: underline; }
+
+#splash-img {
+  margin: 0px 50px 0px 20px;
+  float: right; }
+
+#steps {
+  margin: 0;
+  list-style: none; }
+  #steps li {
+    vertical-align: top;
+    display:inline-block;}
+    #steps li div {
+      padding: 0px 10px;
+      width: 200px; }
+
+/* Misc. */
+.large {
+  font-size: 200%;
+  line-height: 1em;}
+
+
+img.left {
+  margin: 5px 10px 0px 0px;
+  float: left;}
+
+.clear {
+  clear:both;}
