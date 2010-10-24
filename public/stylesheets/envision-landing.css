@@ -172,11 +172,22 @@ ul, ol {
       padding: 0px 10px;
       width: 200px; }
 
+#tools {
+  list-style: none;}
+  #tools li {
+    width: 50%;
+    float:left;}
+
 /* Misc. */
 .large {
   font-size: 200%;
   line-height: 1em;}
 
+.left {
+  float: left;}
+
+.right {
+  float: right;}
 
 img.left {
   margin: 5px 10px 0px 0px;
