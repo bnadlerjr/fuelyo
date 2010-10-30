@@ -6,8 +6,8 @@ require 'sinatra'
 require 'datamapper'
 require 'omniauth'
 require 'core-ext/array'
-require 'models/fuel_record'
-require 'models/user'
+require 'fuel_record'
+require 'user'
 
 configure :development do
   DataMapper::setup(:default, 'sqlite::memory:')
