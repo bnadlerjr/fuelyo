@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'sinatra'
 gem 'datamapper'
-gem 'dm-postgres-adapter'
 gem 'omniauth'
 
 group :development do
@@ -13,4 +12,8 @@ group :test do
   gem 'dm-sqlite-adapter'
   gem 'rack-test'
   gem 'factory_girl'
+end
+
+group :production do
+  gem 'dm-postgres-adapter'
 end
