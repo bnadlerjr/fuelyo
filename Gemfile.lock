@@ -62,6 +62,8 @@ GEM
     fastercsv (1.5.3)
     json_pure (1.4.6)
     mime-types (1.16)
+    mocha (0.9.8)
+      rake
     multi_json (0.0.4)
     multipart-post (1.0.1)
     net-ldap (0.1.1)
@@ -106,6 +108,7 @@ GEM
       ruby-openid (>= 2.1.8)
     rack-test (0.5.6)
       rack (>= 1.0)
+    rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     ruby-openid (2.1.8)
@@ -129,6 +132,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   factory_girl
+  mocha
   omniauth
   rack-test
   shotgun

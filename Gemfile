@@ -12,6 +12,7 @@ group :test do
   gem 'dm-sqlite-adapter'
   gem 'rack-test'
   gem 'factory_girl'
+  gem 'mocha'
 end
 
 group :production do

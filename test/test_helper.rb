@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require 'rubygems'
 require 'test/unit'
 require 'rack/test'
+require 'mocha'
 require 'factory_girl'
 require  File.join(File.dirname(__FILE__), 'factories')
 require 'fuelyo'
