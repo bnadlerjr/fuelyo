@@ -4,9 +4,8 @@ Bundler.setup
 
 require 'sinatra'
 require 'datamapper'
-require 'yaml'
 require 'omniauth'
-require 'lib/core-ext/array'
+require 'core-ext/array'
 require 'models/fuel_record'
 require 'models/user'
 
