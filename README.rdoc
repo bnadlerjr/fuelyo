@@ -1,10 +1,12 @@
 = Fuelyo
 
 == Description
-For everyone who wants to track their vehicle's fuel economy, fuelyo is a online
-tracker that provides fuel efficiency data based on your actual gas mileage
-information. Unlike manual tracking fuelyo is simple to use and can be updated
-via SMS.
+For everyone who wants to track their vehicle's fuel economy, fuelyo is a
+online tracker that provides fuel efficiency data based on your actual gas
+mileage information. Unlike manual tracking fuelyo is simple to use and can be
+updated via SMS.
+
+See http://fuelyo.heroku.com for a working example.
 
 == Scope {'+' => 'In Scope', '-' => 'Out of Scope'}
  + Enter mileage info via SMS
@@ -21,11 +23,3 @@ via SMS.
  3. Sinatra app parses SMS message and saves data to database
  4. User logs into web app
  5. User views mileage history
-
-== TODO
- 1. Show MPG history graph using Raphael.js
- 2. Ability to log out.
- 3. Link to records page for already signed in user.
- 4. Nicely redirect to home page if user is not signed in and tries to view records.
- 5. Refactor /incoming route and have it redirect based on SMS type.
- 6. Create a model object for Zeep Mobile SMS response.
