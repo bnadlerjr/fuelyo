@@ -36,6 +36,9 @@
         <div  id="menu">
             <ul>
                 <li><a href="http://fuelyo.heroku.com">Home</a></li>
+                <% if current_user %>
+                <li><a href="/records">View Records</a></li>
+                <% end %>
                 <li class="last"><a href="/about">About</a></li>
             </ul>
         </div>

@@ -27,6 +27,12 @@ end
 
 enable :sessions
 
+helpers do
+  def current_user
+    session['user_id'] ? User.get(session['user_id']) : nil
+  end
+end
+
 get '/' do
   erb :index
 end
