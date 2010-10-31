@@ -39,6 +39,8 @@ class TestApp < Test::Unit::TestCase
 
   def test_incoming_subscription_update
     post '/incoming', { 'event' => 'SUBSCRIPTION_UPDATE' }
+    follow_redirect!
+
     assert last_response.body.include?('Thanks for signing up to fuelyo')
     assert_content_type 'text/plain;charset=utf-8'
   end

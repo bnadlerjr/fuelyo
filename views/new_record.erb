@@ -1,0 +1,5 @@
+<% if 0 == @r.miles_per_gallon %>
+Great! You've saved your first fuel record. The next time you send fuel information we'll be able to calculate your MPG.
+<% else %>
+Successfully saved fuel record. Current MPG is <%= @r.miles_per_gallon %>.
+<% end %>

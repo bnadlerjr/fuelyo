@@ -45,20 +45,19 @@ end
 
 post '/incoming' do
   content_type 'text/plain'
-  if params['event'] == 'SUBSCRIPTION_UPDATE'
-    return 'Great! Thanks for signing up to fuelyo. You can start sending updates with the fuelyo keyword, odometer reading, price per gallon, and gallons purchased. They should look like this: fuelyo 12435 1.99 12'
-  end
-  r = FuelRecord.new_from_sms(params)
-  if r.save
-    if 0 == r.miles_per_gallon
-      "Great! You've saved your first fuel record. The next time you send fuel information we'll be able to calculate your MPG."
-    else
-      sprintf("Successfully saved fuel record. Current MPG is %.2f.",
-        r.miles_per_gallon)
-    end
+  redirect "/subscription_update" if params['event'] == 'SUBSCRIPTION_UPDATE'
+
+  @r = FuelRecord.new_from_sms(params)
+  if @r.save
+    erb :new_record
   else
-    r.errors.each { |k,v| v }.join(';')
+    @r.errors.each { |k,v| v }.join(';')
   end
+end
+
+get '/subscription_update' do
+  content_type 'text/plain'
+  erb :subscription_update
 end
 
 get '/auth/:name/callback' do
