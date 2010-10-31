@@ -31,6 +31,10 @@ get '/' do
   erb :index
 end
 
+get '/about' do
+  erb :about
+end
+
 get '/records' do
   user = User.get(session['user_id'])
   @averages = user.fuel_history

@@ -45,9 +45,7 @@ h1 {
   color: #006699; }
 
 h2 {
-  font-size: 140%;
-  text-transform: uppercase;
-  color: #88ac0b; }
+  font-size: 140%; }
 
 h3 {
   font-size: 120%;
@@ -231,20 +229,41 @@ tr.row-b {
   padding: 0;
   margin: 5px 0 0 5px;
   display: inline; }
-  #main h2 {
-    margin-top: 10px;
-    font: Bold 140% "Trebuchet MS", Tahoma, Sans-serif;
-    color: #88ac0b;
-    padding: 5px 0 5px 25px;
-    border-bottom: 1px solid #eff0f1;
-    background: white url(../images/square-green.png) no-repeat 3px 50%;
-    text-transform: none; }
-    #main h2 a {
-      background: none;
-      color: #88ac0b;
-      text-decoration: none; }
   #main ul li {
     list-style-image: url(../images/bullet.gif); }
+
+#main-single {
+  line-height: 1.5em;
+  font-size: 130%;
+  width: 96.5%;
+  padding: 0;
+  margin: 5px 10 0 5px;
+  display: inline; }
+  #main-single ul li {
+    list-style-image: url(../images/bullet.gif); }
+  #main-single img {
+    background: #fafafa;
+    border: none;
+    margin-left: 5px;
+    padding: 5px; }
+    #main-single img.float-right {
+      margin: 5px 0px 10px 10px; }
+    #main-single img.float-left {
+      margin: 5px 10px 10px 0px; }
+    #main-single h2 {
+  text-transform: none;
+  color: #666666;
+      font-size: 140%;}
+
+#main-about {
+  font-size: 130%; }
+  #main-about #tools {
+    list-style: none;}
+    #main-about #tools img {
+      border: none;}
+    #main-about #tools li {
+      width: 50%;
+      float:left;}
 
 /* Sidebar */
 #sidebar {
@@ -302,19 +321,34 @@ tr.row-b {
     #footer a:hover {
       text-decoration: underline; }
 
-/* alignment classes */
-.float-left {
-  float: left; }
-
-.float-right {
+#splash-img {
+  margin: 0px 50px 0px 20px;
   float: right; }
 
-.align-left {
-  text-align: left; }
+#steps {
+  margin: 0;
+  list-style: none; }
+  #steps li {
+    vertical-align: top;
+    display:inline-block;}
+    #steps li div {
+      padding: 0px 10px;
+      width: 200px; }
 
-.align-right {
-  text-align: right; }
+/* Misc. */
+.large {
+  font-size: 200%;
+  line-height: 1em;}
 
-/* display and additional classes */
+.left {
+  float: left;}
+
+.right {
+  float: right;}
+
+img.left {
+  margin: 5px 10px 0px 0px;
+  float: left;}
+
 .clear {
-  clear: both; }
+  clear:both;}
