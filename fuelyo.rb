@@ -5,9 +5,9 @@ Bundler.setup
 require 'sinatra'
 require 'datamapper'
 require 'omniauth'
-require 'core-ext/array'
-require 'fuel_record'
-require 'user'
+require 'lib/core-ext/array'
+require 'lib/fuel_record'
+require 'lib/user'
 
 configure :development do
   DataMapper::setup(:default, 'sqlite::memory:')
