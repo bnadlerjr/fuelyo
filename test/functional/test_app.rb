@@ -40,17 +40,20 @@ class TestApp < Test::Unit::TestCase
   def test_incoming_subscription_update
     post '/incoming', { 'event' => 'SUBSCRIPTION_UPDATE' }
     assert last_response.body.include?('Thanks for signing up to fuelyo')
+    assert_content_type 'text/plain;charset=utf-8'
   end
 
   def test_incoming_first_fuel_record
     post '/incoming', @sms    
     assert last_response.body.include?("You've saved your first fuel record")
+    assert_content_type 'text/plain;charset=utf-8'
   end
 
   def test_incoming_existing_fuel_record
     Factory.create(:fuel_record)
     post '/incoming', @sms
     assert last_response.body.include?('Current MPG is 3.33')
+    assert_content_type 'text/plain;charset=utf-8'
   end
 
   def test_incoming_fuel_record_error
@@ -58,5 +61,12 @@ class TestApp < Test::Unit::TestCase
     @sms['body'] = '5 0.99 10'
     post '/incoming', @sms
     assert last_response.body.include?('mis-typed your odometer reading')
+    assert_content_type 'text/plain;charset=utf-8'
+  end
+
+  private
+
+  def assert_content_type(content_type)
+    assert_equal content_type, last_response.headers['Content-Type']
   end
 end
