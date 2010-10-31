@@ -52,4 +52,11 @@ class TestApp < Test::Unit::TestCase
     post '/incoming', @sms
     assert last_response.body.include?('Current MPG is 3.33')
   end
+
+  def test_incoming_fuel_record_error
+    Factory.create(:fuel_record)
+    @sms['body'] = '5 0.99 10'
+    post '/incoming', @sms
+    assert last_response.body.include?('mis-typed your odometer reading')
+  end
 end
