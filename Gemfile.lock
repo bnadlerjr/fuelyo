@@ -62,7 +62,7 @@ GEM
     fastercsv (1.5.3)
     json_pure (1.4.6)
     mime-types (1.16)
-    mocha (0.9.8)
+    mocha (0.9.9)
       rake
     multi_json (0.0.4)
     multipart-post (1.0.1)
