@@ -9,12 +9,7 @@ require 'lib/core-ext/array'
 require 'lib/fuel_record'
 require 'lib/user'
 
-configure :development do
-  DataMapper::setup(:default, 'sqlite::memory:')
-  DataMapper.auto_migrate!
-end
-
-configure :test do
+configure :development, :test do
   DataMapper::setup(:default, 'sqlite::memory:')
   DataMapper.auto_migrate!
 end
