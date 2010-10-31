@@ -43,21 +43,16 @@ end
 
 get '/records' do
   user = User.get(session['user_id'])
-  @averages = user.fuel_history
-  @records = user.fuel_records
+  @averages, @records = user.fuel_history, user.fuel_records 
   erb :records
 end
 
 post '/incoming' do
   content_type 'text/plain'
-  redirect "/subscription_update" if params['event'] == 'SUBSCRIPTION_UPDATE'
+  redirect "/subscription_update" if 'SUBSCRIPTION_UPDATE' == params['event']
 
   @r = FuelRecord.new_from_sms(params)
-  if @r.save
-    erb :new_record
-  else
-    @r.errors.each { |k,v| v }.join(';')
-  end
+  @r.save ? (erb :new_record) : (@r.errors.each { |k,v| v }.join(';'))
 end
 
 get '/subscription_update' do
