@@ -3,6 +3,7 @@ require 'bundler'
 Bundler.setup
 
 require 'sinatra'
+require 'sinatra/content_for'
 require 'datamapper'
 require 'omniauth'
 require 'lib/core-ext/array'
