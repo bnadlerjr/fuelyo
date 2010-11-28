@@ -120,6 +120,8 @@ GEM
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
+    sinatra-content-for (0.2)
+      sinatra
     stringex (1.1.0)
     tilt (1.1)
     uuidtools (2.1.1)
@@ -137,3 +139,4 @@ DEPENDENCIES
   rack-test
   shotgun
   sinatra
+  sinatra-content-for

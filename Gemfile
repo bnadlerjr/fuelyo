@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'sinatra'
 gem 'datamapper'
 gem 'omniauth'
+gem 'sinatra-content-for'
 
 group :development do
   gem 'shotgun'
