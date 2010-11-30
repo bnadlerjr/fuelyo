@@ -6,7 +6,7 @@ Fuelyo = (function () {
         series = { 'Avg. MPG': [] };
 
     function extractData() {
-        var data = $('mpg-graph').text().split(',');
+        var data = $('#mpg-graph').text().split(',');
         $.each(data, function (index, value) {
             // Data is in the form label,value,label,value...
             if (index % 2 === 0) {
