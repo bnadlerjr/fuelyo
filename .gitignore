@@ -3,4 +3,4 @@
 .bundle
 doc/coverage
 .rvmrc
-public/javascripts/*
+tmp

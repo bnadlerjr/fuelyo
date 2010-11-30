@@ -26,3 +26,11 @@ Rcov::RcovTask.new do |t|
 end
 
 task :default => ['test']
+
+namespace "assets" do
+  desc "Package javascripts"
+  task :js do
+    system 'jsmin < lib/js/app.js > tmp/app.min.js'
+    system 'cat vendor/jquery-1.4.3.min.js vendor/raphael.min.js vendor/leonardo.min.js tmp/app.min.js > public/javascripts/app.js'
+  end
+end
