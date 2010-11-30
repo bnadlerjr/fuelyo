@@ -20,6 +20,7 @@ Fuelyo = (function () {
     return {
         onReady: function () {
             extractData();
+            $('#mpg-graph').text('');
             Leonardo.lineChart('mpg-graph', series, labels);
         }
     }
