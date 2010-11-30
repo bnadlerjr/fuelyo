@@ -12,7 +12,7 @@ Fuelyo = (function () {
             if (index % 2 === 0) {
                 labels.push(value);
             } else {
-                series['Avg. MPG'].push(value);
+                series['Avg. MPG'].push(parseFloat(value));
             }
         });
     }
