@@ -20,7 +20,7 @@ Fuelyo = (function () {
     return {
         onReady: function () {
             extractData();
-            Leonardo.lineChart('line-chart', series, labels);
+            Leonardo.lineChart('mpg-graph', series, labels);
         }
     }
 }());
