@@ -6,8 +6,6 @@ online tracker that provides fuel efficiency data based on your actual gas
 mileage information. Unlike manual tracking fuelyo is simple to use and can be
 updated via SMS.
 
-See http://fuelyo.heroku.com for a working example.
-
 == Scope {'+' => 'In Scope', '-' => 'Out of Scope'}
  + Enter mileage info via SMS
  + See fuel efficency over time
