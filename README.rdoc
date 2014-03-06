@@ -1,17 +1,19 @@
 = Fuelyo
 
-== Description
+== This project is no longer maintained. Zeep Mobile is no longer in business.
+
+=== Description
 For everyone who wants to track their vehicle's fuel economy, fuelyo is a
 online tracker that provides fuel efficiency data based on your actual gas
 mileage information. Unlike manual tracking fuelyo is simple to use and can be
 updated via SMS.
 
-== Scope {'+' => 'In Scope', '-' => 'Out of Scope'}
+=== Scope {'+' => 'In Scope', '-' => 'Out of Scope'}
  + Enter mileage info via SMS
  + See fuel efficency over time
  - Multiple cars per user
 
-== Architecture
+=== Architecture
  Sinatra app for website / web service that accepts mileage info
  Hosted on Heroku
  Zeep Mobile for SMS support
